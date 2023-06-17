@@ -7,12 +7,15 @@
 .blur{
     filter: blur(8px);
 }
+.mainContanier{
+    box-shadow: 10px 5px 5px grey;
+}
 
 /* header style  */
 
 header{
     display: flex;
-    margin: 40px 10% 50px 10%;
+    margin: 20px 10% 20px 10%;
     justify-content: space-between;
     font-size: 25px;
     align-items: center;
@@ -78,11 +81,21 @@ section{
     position: relative;
     box-shadow: 0 0 5px grey;
 }
+/* Next page card in center */
+.newTask2 {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+    visibility: visible;
+  }
 
 .newTaskHeading{
     padding: 20px;
     text-align: center;
     font-size: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
     color: red;
     font-weight: 500;
     cursor: pointer;
@@ -91,10 +104,13 @@ section{
     border: 1px solid black;
 }
 .newTaskDescription{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: pre-wrap;
     margin-top: 10px;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
     font-size: 18px;
 }
 .newTaskBtn{
@@ -218,3 +234,6 @@ input[type="text"]{
     box-shadow: 0 0 5px #fda085;
     cursor: pointer;
 }
+
+
+

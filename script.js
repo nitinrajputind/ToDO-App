@@ -28,8 +28,8 @@ addItem1.addEventListener("click",()=>{
 
 /* Function one Create PopUP */
 function popUp(button, heading, newTask){
-    // disabling the buttons 
-    // button.style.pointerEvents = "none";
+    // disableing the buttons
+      button.style.pointerEvents = "none";
     // PopUp
     let popUp = document.createElement("div");
     popUp.className = "popUp";
@@ -91,6 +91,11 @@ function popUp(button, heading, newTask){
         header[0].classList.remove("blur");
         header[1].classList.remove("blur");
         popUp.remove()
+
+            // enabling buttons
+    button.style.pointerEvents = "auto";
+    // removing the animation class
+    popUp.classList.remove("popTransition");
     }
 
     /* Close the popUp click on addBtn and create New Task */
@@ -100,16 +105,16 @@ function popUp(button, heading, newTask){
             if(heading === "Add new list"){
                 addNewCard(popUpInput.value, !flag)
             }
-            // if(heading === "Add new list"){
-            //     subTask(PopUpInput.value, newTask);
-            // }
+            if(heading === "Add new item"){
+                subTask(popUpInput.value, newTask);
+            }
 
         }
         if(section[0].childNodes.length !== 0){
             textNode.remove()
         }
         let statusAddbtn = true;
-        // statusOfPopUp(statusAddbtn);
+        statusOfPopUp(statusAddbtn);
         closeTask();
     })
 
@@ -208,14 +213,97 @@ newTaskDelete.addEventListener("click",()=>{
     }
 })
 
-newTaskHeading.addEventListener
+newTaskHeading.addEventListener("click",()=>{
+    SelectCard(newTaskHeading.innerHTML, newTask)
+})
 
-
-
-
-
-
-
-
-
+window.value = newTask;
 }
+
+
+/* Subtask Function is used to Create The subtasks by taking value from input */
+
+function subTask(value, headNode){
+    // New Task description 
+    let newTaskDescription =document.createElement("div");
+    newTaskDescription.className = "newTaskDescription";
+    newTaskDescription.textContent = value;
+
+    // new task btn 
+    let newTaskBtn =document.createElement("button");
+    newTaskBtn.className = "newTaskBtn";
+    newTaskBtn.textContent = "Mark Done";
+
+    // connecting to the node 
+    headNode.appendChild(newTaskDescription);
+    newTaskDescription.appendChild(newTaskBtn)
+
+    newTaskBtn.addEventListener("click",()=>{
+        change();
+    });
+    function change(){
+        newTaskBtn.remove()
+        newTaskDescription.style.textDecoration = "line-through";
+        newTaskDescription.style.color = "red";
+    }
+}
+
+/*=========================== Page : 2 ===============================*/
+// After Click on Heading of card 
+function SelectCard(cardHeading, node){
+    // changing the header 
+    header[1].style.display = "flex"
+    header[0].style.display = "none"
+    document.getElementById("addItemsContainer");
+    document.getElementById("addItemsContainer");
+    addItemsContainer.innerHTML = cardHeading;
+
+    // changing the section
+    section[0].style.visibility = "hidden"
+
+     //  center the selected div
+     node.classList.add("newTask2");
+}
+
+
+// after clicking back goto main page 
+
+function unSelectCard(){
+    // chaning the header 
+    header[1].style.display ="none"
+    header[0].style.display = "flex"
+    document.getElementById("addItemsContainer");
+    addItemsContainer.innerHTML = "";
+
+    // Changing the section 
+    section[0].style.visibility = "visible"
+
+    //center the selected div
+    console.log(section[0].childNodes.length);
+    console.log(section[0].childNodes);
+    for (let i = 0; i < section[0].childNodes.length; i++) {
+        section[0].childNodes[i].classList.remove("newTask2");
+      }
+}
+
+// second page function
+
+let addItem2 = document.getElementById("addItem2");
+let isBtnClick = false;
+
+addItem2.addEventListener("click", () => {
+  let statusAddBtn = false;
+  popUp(addItem2, "Add new list", window.value, statusAddBtn);
+});
+// add btn is pressed
+function statusOfPopUp(statusAddBtn) {
+  if (statusAddBtn) {
+    unSelectCard();
+  }
+}
+
+// back btn 
+let backBtn = document.getElementById("backBtn");
+backBtn.addEventListener("click", () => {
+  unSelectCard();
+});
