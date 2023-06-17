@@ -235,5 +235,24 @@ input[type="text"]{
     cursor: pointer;
 }
 
+/* responsive */
+@media screen and (max-width: 692px) {
+    .taskList,
+    .addItemsContainer,
+    #addItemsContainer,
+    .addItemPlus {
+      font-size: 28px;
+    }
+    section {
+      display: flex;
+      justify-content: center;
+    }
+    .popUp{
+        width: 90vw;
+    }
+    input[type="text"]{
+        width: 70vw;
+    }
+  }
 
 
