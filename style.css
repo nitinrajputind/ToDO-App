@@ -20,6 +20,9 @@ header{
     font-size: 25px;
     align-items: center;
 }
+.tasklist{
+    text-shadow: 0px 3px 4px grey;
+}
 
 .tasklist span{
     color: rgb(0, 200, 255);
@@ -71,7 +74,7 @@ section{
 
 .newTask{
     /* min-width: 250px; */
-    width: 250px;
+    width: 260px;
     margin: 10px;
     /* min-height: 350px; */
     height: 350px;
@@ -79,8 +82,13 @@ section{
     border-radius: 10px;
     margin-bottom: 10px;
     position: relative;
-    box-shadow: 0 0 5px grey;
+    /* border: .5px solid grey; */
+    box-shadow: 0 0 2px grey;
 }
+.newTask:hover{
+    box-shadow: 0 0 10px grey;
+}
+
 /* Next page card in center */
 .newTask2 {
     position: absolute;
@@ -97,7 +105,7 @@ section{
     text-overflow: ellipsis;
     overflow: hidden;
     color: red;
-    font-weight: 500;
+    font-weight: 700;
     cursor: pointer;
 }
 .line{
@@ -175,7 +183,7 @@ section{
 }
 
 .popUp{
-    border: 1px solid black;
+    /* border: 0.5px solid black; */
     position: absolute;
     left: 50%;
     right: 50%;
@@ -183,13 +191,14 @@ section{
     top: 50%;
     bottom: 50%;
     transform: translateY(-50%, -50%);
-    border-radius: 10px;
+    border-radius: 15px;
     width: 500px;
     height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    box-shadow: 0 0 20px grey;
 }
 
 .popUpHead{

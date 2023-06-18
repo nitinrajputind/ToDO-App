@@ -6,7 +6,7 @@ header[1].style.display = "none"
 
 /* creating  text node in section  */
 
-let textNode = document.createElement("div")
+let textNode = document.createElement("div");
 textNode.textContent = "No Item in the todo list ";
 
 section[0].appendChild(textNode);
